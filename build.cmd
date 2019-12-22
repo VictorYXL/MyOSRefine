@@ -1,0 +1,1 @@
+nasm IPL.nsm -o MyOS.img
