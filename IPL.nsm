@@ -75,7 +75,7 @@ next:
 	CMP     CH,9
 	JBE     read_sector
 
-	JMP     succeed
+	JMP     load_os
 
 ; Loop: print string with interrupt
 print:
@@ -92,10 +92,9 @@ print:
 end:
     HLT
     JMP     end
-; succeed
-succeed:
-    MOV     SI, succeed_msg
-    JMP     print
+; load os
+load_os:
+	JMP		0xc200	        
 ; error
 error:
     MOV     SI, error_msg
@@ -103,10 +102,6 @@ error:
 ; error msg
 error_msg:
 	DB      "load error"
-	DB      0
-; succeed
-succeed_msg:
-	DB      "load successfully"
 	DB      0
 ; Boot end
     TIMES   510 - ($ - $$) DB 0
