@@ -1,0 +1,14 @@
+; nasm_func
+
+;[FORMAT "WCOFF"]    ; nasm -f coff
+[BITS 32]
+;[FILE "nasm_func.nsm"]            
+
+GLOBAL    _io_hlt
+
+[SECTION .text]
+
+;void io_hlt(void)
+_io_hlt:
+    HLT
+    RET
